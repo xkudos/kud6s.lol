@@ -1,57 +1,90 @@
-/* styles.css */
-
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+body, html  {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.video-background {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(8px); /* Initial blur */
+    transition: filter 1s ease, opacity 1s ease; /* Smooth transition for blur and fade */
+}
+
+#bg-video.fade-out {
+    filter: blur(0); /* Removeablur */
+    opacity: 1; /* Ensure full opacity */
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
     text-align: center;
-}
-
-header, main, footer {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-header h1, footer p {
-    text-align: center;
-}
-
-main {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 20px;
 }
 
-section {
-    margin-bottom: 30px;
-}
-
-h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
+h1 {
+    font-size: 3em;
+    margin: 0;
 }
 
 p {
-    color: #666;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 1.5em;
 }
 
-a:hover {
-    text-decoration: underline;
+.play-button, .mute-button {
+    position: absolute;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 2em; /* Larger icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
 }
 
-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
-    color: #666;
-    font-size: 14px;
+.play-button {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none; /* No background */
+    width: 200px; /* Larger size */
+    height: 200px; /* Larger size */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.play-button:hover {
+    color: rgba(255, 255, 255, 0.7); /* Change icon color on hover */
+    border-color: rgba(255, 255, 255, 0.7); /* Change border color on hover */
+}
+
+.mute-button {
+    top: 10px;
+    left: 10px;
+    background: none; /* No background */
+    width: 50px; /* Default size */
+    height: 50px; /* Default size */
+}
+
+.mute-button:hover {
+    color: rgba(255, 255, 255, 0.7); /* Change icon color on hover */
 }

@@ -4,57 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>k u d 6 s . l o l </title>
- 
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          animateTitle();
-      });
+        document.addEventListener('DOMContentLoaded', function () {
+            animateTitle();
+        });
 
-      function animateTitle() {
-          // const title = document.title;
-          const originalTitle = 'k u d 6 s . l o l ';
-          let index = 0;
+        function animateTitle() {
+            const originalTitle = 'k u d 6 s . l o l ';
+            let index = 0;
 
-          setInterval(function () {
-              index = (index + 1) % (originalTitle.length + 1);
-              document.title = originalTitle.substring(0, index);
-          }, 300); 
-      }
+            setInterval(function () {
+                index = (index + 1) % (originalTitle.length + 1);
+                document.title = originalTitle.substring(0, index);
+            }, 300);
+        }
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>kud6s.lol</h1>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm brandon/kudos! I am 20 and I am nerd LOL. p.s i love my gf</p>
-        </section>
+    <div class="video-background">
+        <video id="bg-video" loop muted>
+            <source src="/assets/NOT EVEN GHOSTS ARE THIS EMPTY.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>kud6s.lol</h1>
+            <p>penis</p>
+        </div>
+        <button class="play-button" id="play-button">click me :3</button>
+        <button class="mute-button" id="mute-button" style="display: none;">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
 
-        <section id="skills">
-            <h2>What I Do</h2>
-            <p>Programming/Developing, Video Editing, Professional Pls Donate donator :smirk:.</p>
-        </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('bg-video');
+            var muteButton = document.getElementById('mute-button');
+            var playButton = document.getElementById('play-button');
 
-        <section id="interests">
-            <h2>My Interests</h2>
-            <p>Outside of work, I enjoy playing video games, programming, talking with friends, graphic designing, editing, and more!</p>
-        </section>
+            video.volume = 0.25; // Set volume to 25%
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Feel free to add me on discord if you have any questions!! Discord: kud6s</p>
-        </section>
+            playButton.addEventListener('click', function() {
+                video.muted = false; // Unmute the video
+                video.play().then(function() {
+                    playButton.style.display = 'none'; // Hide play button on successful play
+                    muteButton.style.display = 'block'; // Show mute button
+                    video.classList.add('fade-out'); // Add fade-out class to remove blur with animation
+                }).catch(function(error) {
+                    console.error('Error attempting to play the video:', error);
+                });
+            });
 
-        <section id="funnys">
-            <h2>Inside Jokes LOL</h2>
-            <p>you babe a penis? yea lowkey kinda penis.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 kudos. All rights reserved. metisilwm.</p>
-    </footer>
+            muteButton.addEventListener('click', function() {
+                if (video.muted) {
+                    video.muted = false;
+                    muteButton.innerHTML = '<i class="fas fa-volume-up"></i>'; // Change to unmuted icon
+                } else {
+                    video.muted = true;
+                    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>'; // Change to muted icon
+                }
+            });
+        });
+    </script>
 </body>
 </html>
