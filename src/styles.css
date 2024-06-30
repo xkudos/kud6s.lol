@@ -88,3 +88,32 @@ p {
 .mute-button:hover {
     color: rgba(255, 255, 255, 0.7); /* Change icon color on hover */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    #play-button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    #play-button {
+        font-size: 0.8em;
+    }
+}
