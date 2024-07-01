@@ -1,13 +1,10 @@
-<!-- penis -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>k u d 6 s . l o l </title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             animateTitle();
@@ -23,6 +20,8 @@
             }, 300);
         }
     </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
@@ -30,45 +29,18 @@
         <video id="bg-video" loop muted>
             <source src="/assets/NOT EVEN GHOSTS ARE THIS EMPTY.mp4" type="video/mp4">
         </video>
-        <div class="content">
-            <h1>kud6s.lol</h1>
-            <p>penis</p>
-        </div>
         <button class="play-button" id="play-button">click me :3</button>
         <button class="mute-button" id="mute-button" style="display: none;">
             <i class="fas fa-volume-up"></i>
         </button>
+        <div class="center-box" id="center-box">
+            <!-- Content of the center box -->
+            <h2>Center Box</h2>
+            <p>This box appears after clicking the play button.</p>
+        </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var video = document.getElementById('bg-video');
-            var muteButton = document.getElementById('mute-button');
-            var playButton = document.getElementById('play-button');
-
-            video.volume = 0.25; // Set volume to 25%
-
-            playButton.addEventListener('click', function() {
-                video.muted = false; // Unmute the video
-                video.play().then(function() {
-                    playButton.style.display = 'none'; // Hide play button on successful play
-                    muteButton.style.display = 'block'; // Show mute button
-                    video.classList.add('fade-out'); // Add fade-out class to remove blur with animation
-                }).catch(function(error) {
-                    console.error('Error attempting to play the video:', error);
-                });
-            });
-
-            muteButton.addEventListener('click', function() {
-                if (video.muted) {
-                    video.muted = false;
-                    muteButton.innerHTML = '<i class="fas fa-volume-up"></i>'; // Change to unmuted icon
-                } else {
-                    video.muted = true;
-                    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>'; // Change to muted icon
-                }
-            });
-        });
-    </script>
+    <!-- Link to external JavaScript -->
+    <script src="/src/scripts.js"></script>
 </body>
 </html>
