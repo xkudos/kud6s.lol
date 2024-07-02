@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const centerBox = document.getElementById('center-box');
 
     // Set initial volume and mute state
-    video.volume = 0.20; // Set volume to 25%
+    video.volume = 0.1; // Set volume to 25%
 
     playButton.addEventListener('click', function() {
         video.muted = false; // Unmute the video
