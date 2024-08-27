@@ -25,9 +25,8 @@ body, html {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1; /* Ensure it stays behind other elements */
-    filter: blur(15px); /* Apply blur effect */ 
-    background: rgba(0, 0, 0, 0.856); /* Black overlay with opacity */
-    transition: filter 1s ease, background 1s ease; /* Smooth transition for blur removal and background change */
+    filter: blur(15px) brightness(30%);
+    transition: filter 0.5s ease, background 1s ease; /* Smooth transition for blur removal and background change */
 }
 
 #bg-video.no-blur {
