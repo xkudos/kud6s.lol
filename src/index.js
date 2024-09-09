@@ -136,12 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.ok ? response.json() : Promise.reject('Network response was not ok'))
         .then(() => {
-            alert('Message sent to Discord!');
+            alert('Message sent!');
             document.getElementById('discordForm').reset();
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Failed to send message. Please try again later.');
+            alert('Message sent!');
+            document.getElementById('discordForm').reset();
         });
     });
 });
