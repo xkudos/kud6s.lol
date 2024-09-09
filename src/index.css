@@ -11,31 +11,6 @@ body {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-#loading {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    background: rgb(0, 0, 0);
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#spinner {
-    animation: rotate 0.56s infinite linear;
-    width: 50px;
-    height: 50px;
-    border: 12px solid #fff;
-    border-bottom: 12px solid rgb(0, 0, 0);
-    border-radius: 50%;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 #bg-video {
     position: absolute;
     top: 50%;
@@ -45,7 +20,8 @@ body {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
-    filter: brightness(35%);
+    filter: brightness(35%) blur(25px);
+    transition: filter 0.5s ease;
 }
 
 #box {
@@ -97,10 +73,11 @@ body {
     z-index: 1;
     color: #fff;
     padding-bottom: 10vh;
+    display: none; /* Initially hidden */
 }
 
 #middle h1 {
-    text-shadow: rgb(255, 255, 255) 0px 0 10px;
+    text-shadow: rgb(255, 255, 255) 0px 0 8px;
     color: rgb(255, 255, 255);
     font-size: 65px;
 }
@@ -126,12 +103,12 @@ body {
     background: transparent;
     color: #fff;
     position: fixed;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 4;
     transition: 0.15s ease-in-out;
     border-radius: 100px;
+    display: none; /* Initially hidden */
 }
 
 #about {
@@ -155,6 +132,7 @@ body {
 #about:hover, #work:hover, #contact:hover {
     text-shadow: rgb(255, 255, 255) 0px 0 25px;
     cursor: pointer;
+    transition: text-shadow 0.5s ease;
 }
 
 .btn_one {
@@ -186,12 +164,13 @@ body {
 
 .shadow {
     filter: drop-shadow(rgb(255, 255, 255) 0px 0 10px);
-    transition: 0.15s ease-in-out;
+    transition: filter 0.5s ease;
 }
 
 .shadow:hover {
     cursor: pointer;
     filter: drop-shadow(rgb(255, 255, 255) 0px 0 20px);
+    transition: filter 0.5s ease;
 }
 
 .container {
@@ -204,6 +183,10 @@ body {
     position: fixed;
     max-height: 100vh;
     overflow-y: auto;
+    display: none;
+}
+
+.container.hidden {
     display: none;
 }
 
@@ -266,22 +249,6 @@ body {
     color: #fff;
 }
 
-#footer {
-    color: #fff;
-    width: 92vw;
-    padding: 5vh 4vw;
-    text-align: right;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-#footer a {
-    color: rgb(255, 50, 50);
-}
-
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -307,10 +274,6 @@ body {
 @media (max-width: 800px) { 
     #about, #contact, #work {
         display: none;
-    }
-
-    #footer {
-        text-align: center;
     }
 
     #middle {
@@ -341,4 +304,61 @@ body {
     #box div {
         width: 100%;
     }
+}
+
+/* New Button Styles */
+.button-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.click-me-btn {
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 15px 30px;
+    font-size: 30px;
+    background-color: #ffffff00;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(rgb(255, 255, 255) 0px 0 10px);
+    transition: filter 0.5s ease;
+}
+
+.click-me-btn:hover {
+    background-color: #00000000;
+    color: #ffffff;
+    filter: drop-shadow(rgb(255, 255, 255) 0px 0 20px);
+    transition: filter 0.5s ease;
+}
+
+.mute-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.mute-btn {
+    padding: 10px 10px;
+    font-size: 30px;
+    background-color: #ffffff00;
+    color: #ffffff;
+    border-style: solid;
+    border-color: white;
+    border-width: 2.85px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: filter 0.5s ease;
+    display: none;
+}
+
+.mute-btn:hover {
+    background-color: #00000000;
+    transition: filter 0.3s ease;
+    filter: drop-shadow(rgb(255, 255, 255) 0px 0 5px);
+    color: #fff;
+    transition: filter 0.5s ease;
 }
