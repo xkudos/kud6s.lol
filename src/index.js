@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Valorant and Snapchat functionality
     function copyButton(text) {
         navigator.clipboard.writeText(text)
-            .then(() => alert('Copied Valoran Username.'))
+            .then(() => alert('Copied Valorant Username.'))
             .catch(err => console.error('Failed to copy text: ', err));
     }
 
