@@ -7,7 +7,7 @@ body {
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrolling */
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -60,6 +60,10 @@ body {
     text-decoration: underline;
 }
 
+#menu:hover {
+    cursor: pointer;
+}
+
 #middle {
     text-shadow: rgb(255, 255, 255) 0px 0 10px;
     width: 100vw;
@@ -89,44 +93,46 @@ body {
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    margin: 0 auto 0px;
-    border: 3px solid white; /* Optional: Adds a white border around the circle */
+    margin: 0 auto;
+    border: 3px solid white; /* Optional: Adds a white border */
     box-shadow: rgb(255, 255, 255) 0 0 10px;
 }
 
 #about, #work, #contact {
     text-shadow: rgb(255, 255, 255) 0px 0 10px;
     width: 10vw;
-    height: 10vw;
+    height: 5vw;
     text-align: center;
-    font-size: 25px;
+    font-size: 40px;
     background: transparent;
     color: #fff;
-    position: fixed;
+    position: absolute;
     flex-direction: column;
     justify-content: center;
     z-index: 4;
     transition: 0.15s ease-in-out;
     border-radius: 100px;
-    display: none; /* Initially hidden */
 }
 
 #about {
     transform: rotate(-90deg);
     left: 0;
     bottom: 40vh;
+    display: none; /* Initially hidden */
 }
 
 #work {
     transform: rotate(90deg);
     right: 0;
     bottom: 40vh;
+    display: none; /* Initially hidden */
 }
 
 #contact {
     bottom: 0;
     left: 45vw;
     border-radius: 100px 100px 0 0;
+    display:none;
 }
 
 #about:hover, #work:hover, #contact:hover {
@@ -154,23 +160,21 @@ body {
 }
 
 #middle table {
-    width: 30%;
-    margin: 6vh auto;
+    width:30%;
+    margin:6vh auto;
 }
-
 #middle table tr td {
-    text-align: center;
+    text-align:center;
 }
 
-.shadow {
+.socials {
     filter: drop-shadow(rgb(255, 255, 255) 0px 0 10px);
     transition: filter 0.5s ease;
 }
 
-.shadow:hover {
+.socials:hover {
     cursor: pointer;
     filter: drop-shadow(rgb(255, 255, 255) 0px 0 20px);
-    transition: filter 0.5s ease;
 }
 
 .container {
@@ -183,12 +187,12 @@ body {
     position: fixed;
     max-height: 100vh;
     overflow-y: auto;
-    display: none;
+    display: none; /* Initially hidden */
 }
 
-.container.hidden {
+/* .container.hidden {
     display: none;
-}
+} */
 
 .container div {
     font-size: 25px;
@@ -271,38 +275,39 @@ body {
     background: rgb(0, 0, 0);
 }
 
-@media (max-width: 800px) { 
+@media (max-width: 800px){ 
     #about, #contact, #work {
-        display: none;
+        text-align: center;
+        font-size: 15px;
+        border-radius: 50px;
+        overflow:visible;
+        text-decoration: underline;
+        position:absolute;
     }
-
     #middle {
-        width: 90vw;
-        padding: 0 5vw;
+        width:90vw;
+        padding:0px 5vw;
     }
-
     #middle table {
-        width: 80%;
+        width:80%;
     }
-
-    .container form input, .container form textarea {
-        width: 90%;
+    .container form input {
+        width:90%;
     }
-
+    .container form textarea {
+        width:90%;
+    }
     #menu {
-        display: inline-block;
+        display:inline-block;
     }
-
     #onlywide {
-        display: none !important;
+        display:none !important;
     }
-
     .box2 {
-        margin-left: 0 !important;
+        margin-left:0px !important;
     }
-
     #box div {
-        width: 100%;
+        width:100%;
     }
 }
 
@@ -319,7 +324,7 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     padding: 15px 30px;
     font-size: 30px;
-    background-color: #ffffff00;
+    background-color: transparent; /* Changed to match the hover state */
     color: #ffffff;
     border: none;
     cursor: pointer;
@@ -328,10 +333,9 @@ body {
 }
 
 .click-me-btn:hover {
-    background-color: #00000000;
+    background-color: transparent; /* Changed to match the default state */
     color: #ffffff;
     filter: drop-shadow(rgb(255, 255, 255) 0px 0 20px);
-    transition: filter 0.5s ease;
 }
 
 .mute-container {
@@ -342,9 +346,9 @@ body {
 }
 
 .mute-btn {
-    padding: 10px 10px;
+    padding: 10px;
     font-size: 30px;
-    background-color: #ffffff00;
+    background-color: transparent; /* Changed to match the hover state */
     color: #ffffff;
     border-style: solid;
     border-color: white;
@@ -352,13 +356,10 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: filter 0.5s ease;
-    display: none;
+    display: none; /* Initially hidden */
 }
 
 .mute-btn:hover {
-    background-color: #00000000;
-    transition: filter 0.3s ease;
+    background-color: transparent; /* Changed to match the default state */
     filter: drop-shadow(rgb(255, 255, 255) 0px 0 5px);
-    color: #fff;
-    transition: filter 0.5s ease;
 }
